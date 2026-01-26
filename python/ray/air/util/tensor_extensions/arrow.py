@@ -280,8 +280,7 @@ def convert_to_pyarrow_array(
         ) and log_once("_fallback_to_arrow_object_extension_type_warning"):
             logger.warning(
                 f"Failed to convert column '{column_name}' into pyarrow "
-                f"array due to: {ace}; {object_ext_type_detail}",
-                exc_info=ace,
+                f"array due to: {ace}; {object_ext_type_detail}"
             )
 
         if not object_ext_type_fallback_allowed:
@@ -747,8 +746,7 @@ class ArrowTensorArray(pa.ExtensionArray):
             except ValueError as ve:
                 logger.warning(
                     f"Failed to stack lists due to: {ve}; "
-                    f"falling back to using np.array(..., dtype=object)",
-                    exc_info=ve,
+                    f"falling back to using np.array(..., dtype=object)"
                 )
 
                 # ndarray stacking may fail if the arrays are heterogeneously-shaped.
